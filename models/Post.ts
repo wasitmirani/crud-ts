@@ -9,5 +9,13 @@ export class Post {
             return rows;
         });
     }
+    store=async (request:Request,response:Response,next:NextFunction)=>{
+
+        let body=request.body;
+        
+        return await db.query(`insert into posts('id','title','body') values(?,${body.title},${body.body})`).then((row)=>{
+            return row;
+        });
+    }
 
 }

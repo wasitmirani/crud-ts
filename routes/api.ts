@@ -22,6 +22,7 @@ route.get('/', function (req, res) {
 
 route.get('/users',getUsers);
 route.get('/posts',post_controller.getPosts);
+route.post('/post',post_controller.storePost);
 // Export the router
 export = route;
 

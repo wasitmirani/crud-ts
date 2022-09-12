@@ -15,6 +15,10 @@ class PostController{
        }
     }
 
+  storePost= async (request:Request,response: Response,next:NextFunction)=>{
+   return await post.store(request,response,next); 
+  }
+
 }
 
 
