@@ -1,6 +1,8 @@
 import express, { Request, Response, NextFunction } from 'express';
 import * as db from "../database/dbquery";
 import  { getUsers} from "../controllers/user.controller";
+import PostController from "../controllers/post.controller";
+const post_controller = new PostController();
 
 let route = express.Router();
 
@@ -18,10 +20,8 @@ route.get('/', function (req, res) {
     res.send('About this wiki');
   })
 
-
-
-
-  route.get('/users',getUsers);
+route.get('/users',getUsers);
+route.get('/posts',post_controller.getPosts);
 // Export the router
 export = route;
 
